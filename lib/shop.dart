@@ -70,20 +70,43 @@ class _MyHomePageState extends State<MyHomePage> {
                 IconButton(onPressed: (){}, icon: const Icon(Icons.shopping_cart)),
               ],
               bottom: AppBar(
-                title: Container(
+                title: SizedBox(
                   width: double.infinity,
                   height: 40,
-                  color: Colors.white,
                   child:  Center(
-                    child: TextField(
-                      controller: _controller,
-                      decoration: InputDecoration(
-                          hintText: 'Search for a product',
-                          prefixIcon: const Icon(Icons.forward),
-                          suffixIcon: IconButton(
-                              onPressed: _controller.clear,
-                              icon: const Icon(Icons.clear))),
-                    ),
+                    child: Row(
+                      children: [
+                        /*
+                        *
+                        * Here on the IconButton onPressed should be
+                        * Navigation.pop() or something that redirects us
+                        * to the home page
+                        * */
+                        IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back)),
+                        const SizedBox(width: 20,),
+                        Expanded(
+                          child: Container(
+                            color: Colors.white,
+                            child: TextField(
+                              controller: _controller,
+                              decoration: InputDecoration(
+                                  hintText: 'Search for a product',
+                                  /*
+                        * Here is the button for going to the next page
+                        * make the icon -> IconButton and make the navigation
+                        * connection
+                        *
+                        *
+                        * */
+                                  prefixIcon: const Icon(Icons.forward),
+                                  suffixIcon: IconButton(
+                                      onPressed: _controller.clear,
+                                      icon: const Icon(Icons.clear))),
+                            ),
+                          )
+                        ),
+                      ],
+                    )
                   ),
                 ),
               ),
@@ -100,13 +123,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Column(
                     children: [
-                      InkWell(
-                          onTap: (){},
-                          child: Image.asset(
-                            'assets/images/clothing1.jpg',
-                            fit: BoxFit.fitWidth,
-                            height: 180,
-                          )
+                      Expanded(
+                          child:InkWell(
+                              onTap: (){},
+                              child: Image.asset(
+                                'assets/images/clothing1.jpg',
+                                fit: BoxFit.fitWidth,
+                              )
+                          ),
                       ),
                       Row(
                         children: [
@@ -117,7 +141,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               onPressed: (){},
                               child: const Text('Add to cart'))
                         ],
-                      )
+                      ),
+                      const SizedBox(height: 10)
                     ],
                   ),
                   shape: RoundedRectangleBorder(
@@ -132,13 +157,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Column(
                     children: [
-                      InkWell(
-                          onTap: (){},
-                          child: Image.asset(
-                            'assets/images/clothing2.jpg',
-                            fit: BoxFit.fitWidth,
-                            height: 180,
-                          )
+                      Expanded(
+                        child:InkWell(
+                            onTap: (){},
+                            child: Image.asset(
+                              'assets/images/clothing2.jpg',
+                              fit: BoxFit.fitWidth,
+                            )
+                        ),
                       ),
                       Row(
                         children: [
@@ -149,7 +175,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               onPressed: (){},
                               child: const Text('Add to cart'))
                         ],
-                      )
+                      ),
+                      const SizedBox(height: 10)
                     ],
                   ),
                   shape: RoundedRectangleBorder(
@@ -157,18 +184,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   elevation: 5,
                 ),
+
+
                 Card(
                   semanticContainer: true,
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Column(
                     children: [
-                      InkWell(
-                          onTap: (){},
-                          child: Image.asset(
-                            'assets/images/clothing3.jpg',
-                            fit: BoxFit.fitWidth,
-                            height: 180,
-                          )
+                      Expanded(
+                        child:InkWell(
+                            onTap: (){},
+                            child: Image.asset(
+                              'assets/images/clothing3.jpg',
+                              fit: BoxFit.fitWidth,
+                            )
+                        ),
                       ),
                       Row(
                         children: [
@@ -179,7 +209,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               onPressed: (){},
                               child: const Text('Add to cart'))
                         ],
-                      )
+                      ),
+                      const SizedBox(height: 10)
                     ],
                   ),
                   shape: RoundedRectangleBorder(
@@ -194,13 +225,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Column(
                     children: [
-                      InkWell(
-                          onTap: (){},
-                          child: Image.asset(
-                            'assets/images/clothing4.jpg',
-                            fit: BoxFit.fitWidth,
-                            height: 180,
-                          )
+                      Expanded(
+                        child:InkWell(
+                            onTap: (){},
+                            child: Image.asset(
+                              'assets/images/clothing4.jpg',
+                              fit: BoxFit.fitWidth,
+                            )
+                        ),
                       ),
                       Row(
                         children: [
@@ -211,7 +243,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               onPressed: (){},
                               child: const Text('Add to cart'))
                         ],
-                      )
+                      ),
+                      const SizedBox(height: 10)
                     ],
                   ),
                   shape: RoundedRectangleBorder(
@@ -226,13 +259,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Column(
                     children: [
-                      InkWell(
-                          onTap: (){},
-                          child: Image.asset(
-                            'assets/images/clothing5.jpg',
-                            fit: BoxFit.fitWidth,
-                            height: 180,
-                          )
+                      Expanded(
+                        child:InkWell(
+                            onTap: (){},
+                            child: Image.asset(
+                              'assets/images/clothing5.jpg',
+                              fit: BoxFit.fitWidth,
+                            )
+                        ),
                       ),
                       Row(
                         children: [
@@ -243,7 +277,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               onPressed: (){},
                               child: const Text('Add to cart'))
                         ],
-                      )
+                      ),
+                      const SizedBox(height: 10)
                     ],
                   ),
                   shape: RoundedRectangleBorder(
@@ -251,18 +286,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   elevation: 5,
                 ),
+
+
                 Card(
                   semanticContainer: true,
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Column(
                     children: [
-                      InkWell(
-                          onTap: (){},
-                          child: Image.asset(
-                            'assets/images/clothing6.jpg',
-                            fit: BoxFit.fitWidth,
-                            height: 180,
-                          )
+                      Expanded(
+                        child:InkWell(
+                            onTap: (){},
+                            child: Image.asset(
+                              'assets/images/clothing6.jpg',
+                              fit: BoxFit.fitWidth,
+                            )
+                        ),
                       ),
                       Row(
                         children: [
@@ -273,7 +311,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               onPressed: (){},
                               child: const Text('Add to cart'))
                         ],
-                      )
+                      ),
+                      const SizedBox(height: 10)
                     ],
                   ),
                   shape: RoundedRectangleBorder(
@@ -288,13 +327,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Column(
                     children: [
-                      InkWell(
-                          onTap: (){},
-                          child: Image.asset(
-                            'assets/images/clothing7.jpg',
-                            fit: BoxFit.fitWidth,
-                            height: 180,
-                          )
+                      Expanded(
+                        child:InkWell(
+                            onTap: (){},
+                            child: Image.asset(
+                              'assets/images/clothing7.jpg',
+                              fit: BoxFit.fitWidth,
+                            )
+                        ),
                       ),
                       Row(
                         children: [
@@ -305,7 +345,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               onPressed: (){},
                               child: const Text('Add to cart'))
                         ],
-                      )
+                      ),
+                      const SizedBox(height: 10)
                     ],
                   ),
                   shape: RoundedRectangleBorder(
@@ -313,18 +354,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   elevation: 5,
                 ),
+
+
                 Card(
                   semanticContainer: true,
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Column(
                     children: [
-                      InkWell(
-                          onTap: (){},
-                          child: Image.asset(
-                            'assets/images/clothing8.jpg',
-                            fit: BoxFit.fitWidth,
-                            height: 180,
-                          )
+                      Expanded(
+                        child:InkWell(
+                            onTap: (){},
+                            child: Image.asset(
+                              'assets/images/clothing8.jpg',
+                              fit: BoxFit.fitWidth,
+                            )
+                        ),
                       ),
                       Row(
                         children: [
@@ -335,7 +379,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               onPressed: (){},
                               child: const Text('Add to cart'))
                         ],
-                      )
+                      ),
+                      const SizedBox(height: 10)
                     ],
                   ),
                   shape: RoundedRectangleBorder(
