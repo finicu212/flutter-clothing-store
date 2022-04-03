@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(12.0),
               child: Row(
                 children: const <Widget>[
                   Text("Username:"),
@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 50.0,
                       child: TextField(
                         decoration: InputDecoration(
-                          label: Text("Password"),
+                          label: Text("Username"),
                           border: OutlineInputBorder(),
                           hintText: 'username',
                         ),
@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(12.0),
               child: Row(
                   children: const <Widget>[
                     Text("Password:"),
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               enableSuggestions: false,
                               autocorrect: false,
                               decoration: InputDecoration(
-                                label: Text("Username"),
+                                label: Text("Password"),
                                 border: OutlineInputBorder(),
                                 hintText: 'password',
                               ),
