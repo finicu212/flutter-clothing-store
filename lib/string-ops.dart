@@ -30,6 +30,7 @@ class StringOpsPage extends StatefulWidget {
 class _StringOpsPageState extends State<StringOpsPage> {
   final formControllerA = TextEditingController();
   final formControllerB = TextEditingController();
+  String result = "";
 
   @override
   void dispose() {
@@ -39,6 +40,28 @@ class _StringOpsPageState extends State<StringOpsPage> {
     super.dispose();
   }
 
+  String _getFormString()
+  {
+    return formControllerA.value.text + " " + formControllerB.value.text;
+  }
+
+  void _concatenateStrings() {
+    setState(() {
+      result = _getFormString();
+    });
+  }
+
+  void _sortArrays() {
+    setState(() {
+      List<String> stringList = _getFormString().split(" ");
+      List<int> dataListAsInt = stringList.map((data) => int.parse(data)).toList();
+
+      dataListAsInt.sort();
+
+      result = dataListAsInt.join(" ");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +69,7 @@ class _StringOpsPageState extends State<StringOpsPage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: 300.0,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -103,22 +126,25 @@ class _StringOpsPageState extends State<StringOpsPage> {
                       padding: EdgeInsets.all(12.0),
                     ),
                     ElevatedButton(
-                      onPressed: () {
-
-                      },
+                      onPressed: _concatenateStrings,
                       child: const Text("Concatenate")
                     ),
                     const Padding(
                       padding: EdgeInsets.all(12.0),
                     ),
                     ElevatedButton(
-                      onPressed: () {
-
-                      },
+                      onPressed: _sortArrays,
                       child: const Text("Numeric Sort")
                     ),
                   ],
                 ),
+              ),
+              const Text(
+                'Resulting string:',
+              ),
+              Text(
+                '$result',
+                style: Theme.of(context).textTheme.headline4,
               ),
             ],
           ),
