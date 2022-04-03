@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Shop page'),
     );
   }
 }
@@ -48,19 +48,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -69,47 +56,337 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    final _controller = TextEditingController();
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              floating: true,
+              pinned: true,
+              snap: false,
+              centerTitle: false,
+              title: const Text('Shop.com'),
+              actions: [
+                IconButton(onPressed: (){}, icon: const Icon(Icons.shopping_cart)),
+              ],
+              bottom: AppBar(
+                title: Container(
+                  width: double.infinity,
+                  height: 40,
+                  color: Colors.white,
+                  child:  Center(
+                    child: TextField(
+                      controller: _controller,
+                      decoration: InputDecoration(
+                          hintText: 'Search for a product',
+                          prefixIcon: const Icon(Icons.forward),
+                          suffixIcon: IconButton(
+                              onPressed: _controller.clear,
+                              icon: const Icon(Icons.clear))),
+                    ),
+                  ),
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            SliverGrid.count(
+              crossAxisCount: 4,
+              mainAxisSpacing: 5.0,
+              crossAxisSpacing: 5.0,
+              childAspectRatio: 1,
+              children: [
+                //row1
+                Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Column(
+                    children: [
+                      InkWell(
+                          onTap: (){},
+                          child: Image.asset(
+                            'assets/images/clothing1.jpg',
+                            fit: BoxFit.fitWidth,
+                            height: 180,
+                          )
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          const Text('Price: 20RON'),
+                          const SizedBox(width: 20),
+                          ElevatedButton(
+                              onPressed: (){},
+                              child: const Text('Add to cart'))
+                        ],
+                      )
+                    ],
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 5,
+                ),
+
+
+                Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Column(
+                    children: [
+                      InkWell(
+                          onTap: (){},
+                          child: Image.asset(
+                            'assets/images/clothing2.jpg',
+                            fit: BoxFit.fitWidth,
+                            height: 180,
+                          )
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          const Text('Price: 30RON'),
+                          const SizedBox(width: 20),
+                          ElevatedButton(
+                              onPressed: (){},
+                              child: const Text('Add to cart'))
+                        ],
+                      )
+                    ],
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 5,
+                ),
+                Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Column(
+                    children: [
+                      InkWell(
+                          onTap: (){},
+                          child: Image.asset(
+                            'assets/images/clothing3.jpg',
+                            fit: BoxFit.fitWidth,
+                            height: 180,
+                          )
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          const Text('Price: 15RON'),
+                          const SizedBox(width: 20),
+                          ElevatedButton(
+                              onPressed: (){},
+                              child: const Text('Add to cart'))
+                        ],
+                      )
+                    ],
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 5,
+                ),
+
+
+                Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Column(
+                    children: [
+                      InkWell(
+                          onTap: (){},
+                          child: Image.asset(
+                            'assets/images/clothing4.jpg',
+                            fit: BoxFit.fitWidth,
+                            height: 180,
+                          )
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          const Text('Price: 40RON'),
+                          const SizedBox(width: 20),
+                          ElevatedButton(
+                              onPressed: (){},
+                              child: const Text('Add to cart'))
+                        ],
+                      )
+                    ],
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 5,
+                ),
+
+                //row2
+                Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Column(
+                    children: [
+                      InkWell(
+                          onTap: (){},
+                          child: Image.asset(
+                            'assets/images/clothing5.jpg',
+                            fit: BoxFit.fitWidth,
+                            height: 180,
+                          )
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          const Text('Price: 50RON'),
+                          const SizedBox(width: 20),
+                          ElevatedButton(
+                              onPressed: (){},
+                              child: const Text('Add to cart'))
+                        ],
+                      )
+                    ],
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 5,
+                ),
+                Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Column(
+                    children: [
+                      InkWell(
+                          onTap: (){},
+                          child: Image.asset(
+                            'assets/images/clothing6.jpg',
+                            fit: BoxFit.fitWidth,
+                            height: 180,
+                          )
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          const Text('Price: 80RON'),
+                          const SizedBox(width: 20),
+                          ElevatedButton(
+                              onPressed: (){},
+                              child: const Text('Add to cart'))
+                        ],
+                      )
+                    ],
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 5,
+                ),
+
+
+                Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Column(
+                    children: [
+                      InkWell(
+                          onTap: (){},
+                          child: Image.asset(
+                            'assets/images/clothing7.jpg',
+                            fit: BoxFit.fitWidth,
+                            height: 180,
+                          )
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          const Text('Price: 47RON'),
+                          const SizedBox(width: 20),
+                          ElevatedButton(
+                              onPressed: (){},
+                              child: const Text('Add to cart'))
+                        ],
+                      )
+                    ],
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 5,
+                ),
+                Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Column(
+                    children: [
+                      InkWell(
+                          onTap: (){},
+                          child: Image.asset(
+                            'assets/images/clothing8.jpg',
+                            fit: BoxFit.fitWidth,
+                            height: 180,
+                          )
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          const Text('Price: 99RON'),
+                          const SizedBox(width: 20),
+                          ElevatedButton(
+                              onPressed: (){},
+                              child: const Text('Add to cart'))
+                        ],
+                      )
+                    ],
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  elevation: 5,
+                ),
+
+                //row3
+                Card(
+                  color: Colors.blue[200],
+                    child: InkWell(
+                      onTap: (){},
+                      child: Container(),
+                    )
+                ),
+                Card(
+                  color: Colors.blue[400],
+                    child: InkWell(
+                      onTap: (){},
+                      child: Container(),
+                    )
+                ),
+                Card(
+                  color: Colors.blue[600],
+                    child: InkWell(
+                      onTap: (){},
+                      child: Container(),
+                    )
+                ),
+                Card(
+                  color: Colors.blue[100],
+                    child: InkWell(
+                      onTap: (){},
+                      child: Container(),
+                    )
+                ),
+              ],
             ),
+            const SliverPadding(padding: EdgeInsets.symmetric(vertical: 20)),
+            SliverList(delegate: SliverChildListDelegate([
+              Container(
+                height: 400,
+                color: Colors.pink,
+                child: const Center(
+                  child: Text('This is the footer'),
+                ),
+              )
+            ]))
           ],
-        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
