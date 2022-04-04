@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import "shop.dart";
 
 void main() {
   runApp(const MyApp());
@@ -91,7 +91,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyShopPage(title: "Shop page")),
+                );
               },
               child: const Text("Submit")
               )
