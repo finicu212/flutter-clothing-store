@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "string-ops.dart";
 
 void main() {
   runApp(const ShopApp());
@@ -43,7 +44,12 @@ class _MyShopPageState extends State<MyShopPage> {
             centerTitle: false,
             title: const Text('Shop.com'),
             actions: [
-              IconButton(onPressed: (){}, icon: const Icon(Icons.shopping_cart)),
+              IconButton(
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.shopping_cart)
+              ),
             ],
             bottom: AppBar(
               title: SizedBox(
@@ -58,7 +64,15 @@ class _MyShopPageState extends State<MyShopPage> {
                       * Navigation.pop() or something that redirects us
                       * to the home page
                       * */
-                      IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back)),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const StringOpsPage(title: "Form Operations Page")),
+                            );
+                          },
+                          icon: const Icon(Icons.forward)
+                      ),
                       const SizedBox(width: 20,),
                       Expanded(
                         child: Container(
@@ -66,18 +80,20 @@ class _MyShopPageState extends State<MyShopPage> {
                           child: TextField(
                             controller: _controller,
                             decoration: InputDecoration(
-                                hintText: 'Search for a product',
-                                /*
-                                * Here is the button for going to the next page
-                                * make the icon -> IconButton and make the navigation
-                                * connection
-                                *
-                                *
-                                * */
-                                prefixIcon: const Icon(Icons.forward),
-                                suffixIcon: IconButton(
-                                    onPressed: _controller.clear,
-                                    icon: const Icon(Icons.clear))),
+                              hintText: 'Search for a product',
+                              /*
+                              * Here is the button for going to the next page
+                              * make the icon -> IconButton and make the navigation
+                              * connection
+                              *
+                              *
+                              * */
+                              prefixIcon: const Icon(Icons.forward),
+                              suffixIcon: IconButton(
+                                onPressed: _controller.clear,
+                                icon: const Icon(Icons.clear)
+                              ),
+                            ),
                           ),
                         )
                       ),
